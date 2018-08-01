@@ -1,94 +1,68 @@
 class CommandLineInterface
-
 def greet
-  puts 'Welcome to Dogwalker, the command line solution to for lonely dogs!'
+ puts 'Welcome to Dogwalker, the command line solution to for lonely dogs!'
 end
 
 
 def gets_user_input
-  puts "Enter 1 to search for walkers. Enter 2 to add dog. "
-  answer= gets.chomp
+ puts "Enter 1 to search for walkers. Enter 2 to add dog. "
+ answer= gets.chomp
 end
 
 
 def walk_people(name)
-  r = Walker.all.select do |people|
-    people.name == name
-  end
-  r.map do |walker|
-  walker.name
-
+ r = Walker.all.select do |people|
+   people.name == name
+ end
+ r.map do |walker|
+ walker.name
 end
 end
-
 
 def people_walkers
-  walks = []
-  Walker.all.each do |x|
-    walks << x.name
-  end
-  walks.uniq
+ walks = []
+ Walker.all.each do |x|
+   walks << x.name
+ end
+ walks.uniq
 end
 
 def search(answer)
-  if answer.to_i == 1
-    puts "Enter name"
-    a = gets.chomp
-    puts walk_people(a)
+ if answer.to_i == 1
+   puts "Enter name"
+   a = gets.chomp
+   puts walk_people(a)
 
-  elsif answer.to_i == 2
-      puts "Enter Dog name"
-      ans = gets.chomp
-      puts "Enter breed"
-      ans1 = gets.chomp
-    puts "Has been walked? Enter true or false"
-      ans2 = gets.chomp
-      puts "Your dog has been added to the waitlist!"
-    else
-      puts "Enter the correct number"
-
-    end
-end
-
-def filter
-  Walker.all.select do |walker|
-    walker.schedule == schedule
-  end
-end
-
-def search(answer)
- if  answer.to_i == 1
-   puts walkers
-   if answer.to_i == 2
-     puts “Enter Dog name”
+ elsif answer.to_i == 2
+     puts "Enter Dog name"
      ans = gets.chomp
-     puts “Enter breed”
+     puts "Enter breed"
      ans1 = gets.chomp
-   puts “Has been walked? Enter true or false”
+   puts "Has been walked? Enter true or false"
      ans2 = gets.chomp
+     puts "Your dog has been added to the waitlist!"
    else
-     puts “Enter the correct number”
-   end
+     puts "Enter the correct number"
+
    end
 end
 
 def finished
-  puts "If finished enter 10. Else enter any other key."
-  finish = gets.chomp
-  if finish.to_i == 10
-    puts "Goodbye!"
-    exit
-  else
-    run
-  end
+ puts "If finished enter 10. Else enter any other key."
+ finish = gets.chomp
+ if finish.to_i == 10
+   puts "Goodbye!"
+   exit
+ else
+   run
+ end
 end
 
 
 def run
-  greet
-  answer = gets_user_input
-  search(answer)
-  finished
+ greet
+ answer = gets_user_input
+ search(answer)
+ finished
 end
-
 end
