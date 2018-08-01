@@ -12,15 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20180731143921) do
 
+  create_table "dog_walkers", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "walker_id"
+  end
+
   create_table "dogs", force: :cascade do |t|
     t.string  "name"
     t.string  "breed"
     t.boolean "walked"
-  end
-
-  create_table "dogwalkers", force: :cascade do |t|
-    t.integer "dog_id"
-    t.integer "walker_id"
   end
 
   create_table "walkers", force: :cascade do |t|
