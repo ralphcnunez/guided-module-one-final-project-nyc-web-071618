@@ -25,6 +25,8 @@ def finished
   if finish.to_i == 10
     puts "Goodbye!"
     exit
+  else
+    run
   end
 end
 
