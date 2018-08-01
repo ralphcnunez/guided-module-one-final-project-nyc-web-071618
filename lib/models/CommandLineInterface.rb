@@ -10,13 +10,35 @@ def gets_user_input
 end
 
 
-def search(answer)
+def walkyers(answer)
   xall = []
    Walker.all.select do |walker|
    walker.price == answer.to_i
    xall << walker.name
 end
 puts xall.uniq
+end
+
+def filter
+  Walker.all.select do |walker|
+    walker.schedule == schedule
+
+end
+
+def search(answer)
+ if  answer.to_i == 1
+   puts walkyers
+   if answer.to_i == 2
+     puts “Enter Dog name”
+     ans = gets.chomp
+     puts “Enter breed”
+     ans1 = gets.chomp
+   puts “Has been walked? Enter true or false”
+     ans2 = gets.chomp
+   else
+     puts “Enter the correct number”
+   end
+   end
 end
 
 def finished
