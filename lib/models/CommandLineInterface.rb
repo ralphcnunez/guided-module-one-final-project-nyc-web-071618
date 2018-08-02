@@ -4,7 +4,29 @@ def run
     greet
     answer = gets_user_input
     search(answer)
+
+    finished
 end
+
+def finished
+ puts "If finished enter 10. Else enter any other key."
+ finish = gets.chomp
+ if finish.to_i == 10
+   puts "Goodbye!"
+   exit
+ else
+   run
+ end
+end
+
+def select
+
+end
+
+
+
+
+
 
   def greet
     puts 'Welcome to Dogwalker, the command line solution to for lonely dogs!'
@@ -19,7 +41,12 @@ end
     if answer.to_i == 1
       puts "Enter name"
       a = gets.chomp
-      puts Walker.find_walker_by_name(a)
+      r =  Walker.find_walker_by_name(a)
+      i = 1
+      r.each do |name|
+        puts "#{i}. #{name}"
+        i+= 1
+      end
     elsif answer.to_i == 2
         puts "Enter Dog name"
         ans = gets.chomp
@@ -29,7 +56,7 @@ end
         ans2 = gets.chomp
         puts "Your dog has been added to the waitlist!"
       else
-        puts "Enter the correct number"
+        puts "Please enter the correct number"
 end
 end
 

@@ -24,7 +24,6 @@ class Walker < ActiveRecord::Base
    self.all_prices.find_all{ |y| y == x}
   end
 
-
   def self.find_walker_by_schedule(x)
     self.all_schedules.find_all{ |y| y == x}
   end
